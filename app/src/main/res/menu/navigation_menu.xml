@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--In here, we will create items for the navigation-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_account"
+            android:icon="@android:drawable/stat_notify_chat"
+            android:title="@string/account"/>
+        <item
+            android:id="@+id/nav_movies"
+            android:icon="@android:drawable/ic_menu_slideshow"
+            android:title="@string/movie"/>
+        <item
+            android:id="@+id/nav_list"
+            android:icon="@android:drawable/ic_menu_gallery"
+            android:title="@string/company"/>
+        <item
+            android:id="@+id/nav_company"
+            android:icon="@android:drawable/ic_dialog_email"
+            android:title="@string/list"/>
+        <item
+            android:id="@+id/nav_collection"
+            android:icon="@android:drawable/ic_menu_manage"
+            android:title="@string/collection"/>
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@android:drawable/ic_menu_manage"
+            android:title="@string/about"/>
+    </group>
+</menu>
