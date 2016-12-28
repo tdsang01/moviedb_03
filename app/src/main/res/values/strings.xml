@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">MovieDB</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="content_main_fragment">Fragment hien thi dau tien khi vao ung dung</string>
+    <string name="username">trungnguyen</string>
+    <string name="account">Account</string>
+    <string name="movie">Movie</string>
+    <string name="list">List</string>
+    <string name="company">Company</string>
+    <string name="collection">Collection</string>
+    <string name="about">About</string>
+    <string name="search">Search</string>
 </resources>
