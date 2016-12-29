@@ -36,4 +36,6 @@
     <string name="error_load">Khong the lay duoc du lieu!</string>
     <string name="movie_vote_count">Lượt xem:   </string>
     <string name="movie_vote_average">Đánh giá:   </string>
+    <string name="text_vote_count">Lượt xem:\u0020</string>
+    <string name="text_vote_average">Đánh giá:\u0020</string>
 </resources>

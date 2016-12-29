@@ -30,4 +30,6 @@
     <dimen name="company_name_text_size">40sp</dimen>
     <dimen name="company_name_margin_top">40dp</dimen>
     <dimen name="company_name_margin_bottom">40dp</dimen>
+    <dimen name="image_size_width_row_movie_list">140dp</dimen>
+    <dimen name="image_size_height_row_movie_list">100dp</dimen>
 </resources>
