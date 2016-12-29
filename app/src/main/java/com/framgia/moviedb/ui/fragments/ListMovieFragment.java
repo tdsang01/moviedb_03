@@ -2,6 +2,7 @@ package com.framgia.moviedb.ui.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,7 +15,7 @@ import com.framgia.moviedb.R;
 import com.framgia.moviedb.data.model.ListPrimaryMovieInfo;
 import com.framgia.moviedb.data.model.ManagerConstant;
 import com.framgia.moviedb.data.model.PrimaryMovieInfo;
-import com.framgia.moviedb.data.model.RetrofitClient;
+import com.framgia.moviedb.service.RetrofitClient;
 import com.framgia.moviedb.ui.adapter.MoviePopularAdapter;
 
 import java.util.HashMap;
@@ -25,7 +26,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ListMovieFragment extends Fragment {
+public class ListMovieFragment extends Fragment implements MoviePopularAdapter.OnFragmentEvent{
     private final String TAG = getClass().getSimpleName();
     private RecyclerView mRecyclerView;
     private List<PrimaryMovieInfo> mListPrimaryMovieInfo;
@@ -95,8 +96,18 @@ public class ListMovieFragment extends Fragment {
 
     private void loadDataView(ListPrimaryMovieInfo listMP) {
         mListPrimaryMovieInfo = listMP.getMovieInfo();
-        MoviePopularAdapter adapter = new MoviePopularAdapter(getContext(), mListPrimaryMovieInfo);
+        MoviePopularAdapter adapter = new MoviePopularAdapter(getContext(),
+            mListPrimaryMovieInfo, this);
         mRecyclerView.setAdapter(adapter);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+    }
+
+    @Override
+    public void onDataSelected(PrimaryMovieInfo movieInfo) {
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager()
+            .beginTransaction();
+        Fragment fragment = DetailsMovieFeaturesFragment.newInstance(movieInfo);
+        transaction.replace(R.id.fragment_container, fragment);
+        transaction.commit();
     }
 }

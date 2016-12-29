@@ -1,4 +1,8 @@
-package com.framgia.moviedb.data.model;
+package com.framgia.moviedb.service;
+
+import com.framgia.moviedb.data.model.ListPrimaryMovieInfo;
+import com.framgia.moviedb.data.model.ManagerConstant;
+import com.framgia.moviedb.data.model.PrimaryMovieInfo;
 
 import java.util.Map;
 
@@ -17,5 +21,11 @@ public abstract class RetrofitClient {
                                            Map<String, String> params,
                                            Callback<ListPrimaryMovieInfo> callback) {
         clientForecast.getListMoviePopular(type, params).enqueue(callback);
+    }
+
+    public static void getMovieDetails(String movieId,
+                                       Map<String, String> params,
+                                       Callback<PrimaryMovieInfo> callback) {
+        clientForecast.getMovieDetails(movieId, params).enqueue(callback);
     }
 }

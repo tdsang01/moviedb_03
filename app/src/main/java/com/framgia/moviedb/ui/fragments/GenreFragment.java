@@ -17,7 +17,6 @@ import com.framgia.moviedb.service.ApiClient;
 import com.framgia.moviedb.service.GenreApi;
 import com.framgia.moviedb.service.RetrofitCallback;
 import com.framgia.moviedb.ui.adapter.GenreAdapter;
-import com.framgia.moviedb.ui.adapter.VerticalMoviesAdapter;
 import com.framgia.moviedb.ui.interactor.OnListenerCallback;
 
 import java.util.HashMap;
@@ -25,7 +24,6 @@ import java.util.List;
 import java.util.Map;
 
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Response;
 
 public class GenreFragment extends Fragment implements OnListenerCallback {
