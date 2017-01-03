@@ -14,30 +14,26 @@
     <string name="popular">Popular</string>
     <string name="top_rated">Top Rated</string>
     <string name="see_more">See more >></string>
-    <string name="username_account">Username : </string>
-    <string name="name_account">Name : </string>
-    <string name="include_adult_account">Include Adult : </string>
-    <string name="id_account">Id : </string>
-    <string name="iso_6391_account">ISO-639-1 : </string>
-    <string name="iso_31661_account">ISO-3166-1 : </string>
-    <string name="detail">Detail</string>
-    <string name="description_company">Description : </string>
-    <string name="headquarters_company">Headquarters : </string>
-    <string name="homepage_company">Homepage : </string>
-    <string name="logo_company">Logo : </string>
-    <string name="favorite_movies_account">Favorite Movies</string>
-    <string name="rated_movies_account">Rated Movies</string>
-    <string name="watched_movies_account">Watched Movies</string>
-    <string name="error_data_popular">Khong co du lieu Popular Movies!</string>
-    <string name="error_data_top_rated">Khong co du lieu Top Rated!</string>
-    <string name="error_data_lasted">Khong co du lieu Lasted Movie!</string>
-    <string name="error_load_popular">Khong the lay duoc du lieu Popular Movies
-        tu Web Service</string>
-    <string name="error_load_top_rated">Khong the lay duoc du lieu Top Rated Movies
-        tu Web Service</string>
-    <string name="error_load_lasted">Khong the lay duoc du lieu Lasted Movie
-        tu Web Service</string>
+    <string name="account_username">Username : </string>
+    <string name="account_name">Name : </string>
+    <string name="account_include_adult">Include Adult : </string>
+    <string name="account_id">Id : </string>
+    <string name="account_iso_6391">ISO-639-1 : </string>
+    <string name="account_iso_31661">ISO-3166-1 : </string>
+    <string name="account_favorite_movies">Favorite Movies</string>
+    <string name="account_rated_movies">Rated Movies</string>
+    <string name="account_watched_movies">Watched Movies</string>
+    <string name="company_detail">Detail</string>
+    <string name="company_description">Description : </string>
+    <string name="company_headquarters">Headquarters : </string>
+    <string name="company_homepage">Homepage : </string>
+    <string name="company_logo">Logo : </string>
+    <string name="company_movies">Movies : </string>
+    <string name="company_parent">Parent Company : </string>
+    <string name="company_error">Khong co thong tin!</string>
     <string name="home">Home</string>
     <string name="error_data">Khong co du lieu!</string>
     <string name="error_load">Khong the lay duoc du lieu!</string>
+    <string name="movie_vote_count">Lượt xem:   </string>
+    <string name="movie_vote_average">Đánh giá:   </string>
 </resources>

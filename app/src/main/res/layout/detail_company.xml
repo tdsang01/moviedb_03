@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/layout_height_detail"
+        android:background="@color/color_shadow"
+        android:gravity="center_vertical"
+        android:paddingStart="@dimen/padding_left_detail"
+        android:paddingEnd="@dimen/padding_left_detail"
+        android:text="@string/company_detail"
+        android:textSize="@dimen/text_size_detail"/>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--Description-->
+        <TableRow android:layout_width="wrap_content"
+                  android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_height="@dimen/layout_height_detail"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/padding_left_detail"
+                android:paddingEnd="@dimen/padding_left_detail"
+                android:text="@string/company_description"
+                android:layout_width="wrap_content"/>
+
+            <TextView
+                android:id="@+id/text_description_company"
+                android:layout_height="@dimen/layout_height_detail"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"/>
+
+        </TableRow>
+
+        <!--Headquarters-->
+        <TableRow android:layout_width="wrap_content"
+                  android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_height="@dimen/layout_height_detail"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/padding_left_detail"
+                android:paddingEnd="@dimen/padding_left_detail"
+                android:text="@string/company_headquarters"
+                android:layout_width="wrap_content"/>
+
+            <TextView
+                android:id="@+id/text_headquarters_company"
+                android:layout_height="@dimen/layout_height_detail"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"/>
+
+        </TableRow>
+
+        <!--Homepage-->
+        <TableRow android:layout_width="wrap_content"
+                  android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_height="@dimen/layout_height_detail"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/padding_left_detail"
+                android:paddingEnd="@dimen/padding_left_detail"
+                android:text="@string/company_homepage"
+                android:layout_width="wrap_content"/>
+
+            <TextView
+                android:id="@+id/text_homepage_company"
+                android:layout_height="@dimen/layout_height_detail"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"/>
+
+        </TableRow>
+
+        <!--Logo-->
+        <TableRow android:layout_width="wrap_content"
+                  android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_height="@dimen/layout_height_detail"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/padding_left_detail"
+                android:paddingEnd="@dimen/padding_left_detail"
+                android:text="@string/company_logo"
+                android:layout_width="wrap_content"/>
+
+            <TextView
+                android:id="@+id/text_logo_path_company"
+                android:layout_height="@dimen/layout_height_detail"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"/>
+
+        </TableRow>
+
+        <!--Parent company-->
+        <TableRow android:layout_width="wrap_content"
+                  android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_height="@dimen/layout_height_detail"
+                android:gravity="center_vertical"
+                android:paddingStart="@dimen/padding_left_detail"
+                android:paddingEnd="@dimen/padding_left_detail"
+                android:text="@string/company_parent"
+                android:layout_width="wrap_content"/>
+
+            <TextView
+                android:id="@+id/text_parent_company"
+                android:layout_height="@dimen/padding_left_detail"
+                android:gravity="center_vertical"
+                android:layout_width="wrap_content"/>
+
+        </TableRow>
+
+    </TableLayout>
+
+</LinearLayout>
