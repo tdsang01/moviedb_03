@@ -1,15 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--The simple layout for the fragment-->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:gravity="center_vertical"
-              android:orientation="vertical">
+<!--The home screen for the fragment-->
+<!--Because we use min-API android is v9, so I don't use fragment inside fragment-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="@string/content_main_fragment"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-</LinearLayout>
+        <ImageView
+            android:id="@+id/image_lasted_movie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_part_above">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="@string/popular"
+                android:textSize="@dimen/text_size_title_group"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/text_more_popular_movies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:clickable="true"
+                android:onClick=""
+                android:text="@string/see_more"
+                android:textSize="@dimen/text_size_title_group"
+                android:textStyle="bold"/>
+
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/popular_movies"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/horizontal_movie"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_part_above">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="@string/top_rated"
+                android:textSize="@dimen/text_size_title_group"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/text_more_top_rated_movies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="@string/see_more"
+                android:textSize="@dimen/text_size_title_group"
+                android:textStyle="bold"/>
+
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/top_rated_movies"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/horizontal_movie"/>
+
+    </LinearLayout>
+
+</ScrollView>
