@@ -2,6 +2,7 @@ package com.framgia.moviedb.ui.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -71,7 +72,13 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         switch (id) {
+            case R.id.nav_home:
+                MainFragment mainFragment = new MainFragment();
+                transaction.replace(R.id.fragment_container, mainFragment);
+                transaction.commit();
+                break;
             case R.id.nav_account:
                 // TODO Action feature
                 break;
