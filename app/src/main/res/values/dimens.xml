@@ -9,6 +9,7 @@
     <dimen name="height_part_of_avatar">190dp</dimen>
     <dimen name="layout_width">70dp</dimen>
     <dimen name="layout_height">70dp</dimen>
+    <dimen name="margin_top_adapter_vertical">10dp</dimen>
     <dimen name="margin_left_avatar">24dp</dimen>
     <dimen name="margin_start">24dp</dimen>
     <dimen name="padding_bottom">4dp</dimen>
@@ -21,4 +22,12 @@
     <dimen name="layout_height_detail">30dp</dimen>
     <dimen name="layout_height_title_company">150dp</dimen>
     <dimen name="layout_width_image">270dp</dimen>
+    <dimen name="padding_linear_row_movie_list">10dp</dimen>
+    <dimen name="image_layout_width">140dp</dimen>
+    <dimen name="image_layout_height">100dp</dimen>
+    <dimen name="image_margin_left">7dp</dimen>
+    <dimen name="text_magin_top">2dp</dimen>
+    <dimen name="company_name_text_size">40sp</dimen>
+    <dimen name="company_name_margin_top">40dp</dimen>
+    <dimen name="company_name_margin_bottom">40dp</dimen>
 </resources>
