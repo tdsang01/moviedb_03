@@ -30,7 +30,7 @@ public interface MovieApi {
                                           @QueryMap Map<String, String> types);
     @GET("movie/{option}")
     Call<PrimaryMovieInfo> getLasted(@Path("option") String option,
-                                    @QueryMap Map<String, String> types);
+                                     @QueryMap Map<String, String> types);
     enum Api {
         API_KEY("api_key"),
         AUTHORIZATION("alternative_titles"),

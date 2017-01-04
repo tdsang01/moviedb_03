@@ -9,8 +9,8 @@
         android:layout_height="@dimen/layout_height_detail"
         android:background="@color/color_shadow"
         android:gravity="center_vertical"
-        android:paddingStart="@dimen/padding_left_detail"
         android:paddingEnd="@dimen/padding_left_detail"
+        android:paddingStart="@dimen/padding_left_detail"
         android:text="@string/company_detail"
         android:textSize="@dimen/text_size_detail"/>
 
@@ -19,102 +19,107 @@
         android:layout_height="wrap_content">
 
         <!--Description-->
-        <TableRow android:layout_width="wrap_content"
-                  android:layout_height="wrap_content">
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/layout_height_detail"
                 android:gravity="center_vertical"
-                android:paddingStart="@dimen/padding_left_detail"
                 android:paddingEnd="@dimen/padding_left_detail"
-                android:text="@string/company_description"
-                android:layout_width="wrap_content"/>
+                android:paddingStart="@dimen/padding_left_detail"
+                android:text="@string/company_description"/>
 
             <TextView
                 android:id="@+id/text_description_company"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/layout_height_detail"
-                android:gravity="center_vertical"
-                android:layout_width="wrap_content"/>
+                android:gravity="center_vertical"/>
 
         </TableRow>
 
         <!--Headquarters-->
-        <TableRow android:layout_width="wrap_content"
-                  android:layout_height="wrap_content">
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/layout_height_detail"
                 android:gravity="center_vertical"
-                android:paddingStart="@dimen/padding_left_detail"
                 android:paddingEnd="@dimen/padding_left_detail"
-                android:text="@string/company_headquarters"
-                android:layout_width="wrap_content"/>
+                android:paddingStart="@dimen/padding_left_detail"
+                android:text="@string/company_headquarters"/>
 
             <TextView
                 android:id="@+id/text_headquarters_company"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/layout_height_detail"
-                android:gravity="center_vertical"
-                android:layout_width="wrap_content"/>
+                android:gravity="center_vertical"/>
 
         </TableRow>
 
         <!--Homepage-->
-        <TableRow android:layout_width="wrap_content"
-                  android:layout_height="wrap_content">
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/layout_height_detail"
                 android:gravity="center_vertical"
-                android:paddingStart="@dimen/padding_left_detail"
                 android:paddingEnd="@dimen/padding_left_detail"
-                android:text="@string/company_homepage"
-                android:layout_width="wrap_content"/>
+                android:paddingStart="@dimen/padding_left_detail"
+                android:text="@string/company_homepage"/>
 
             <TextView
                 android:id="@+id/text_homepage_company"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/layout_height_detail"
-                android:gravity="center_vertical"
-                android:layout_width="wrap_content"/>
+                android:gravity="center_vertical"/>
 
         </TableRow>
 
         <!--Logo-->
-        <TableRow android:layout_width="wrap_content"
-                  android:layout_height="wrap_content">
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/layout_height_detail"
                 android:gravity="center_vertical"
-                android:paddingStart="@dimen/padding_left_detail"
                 android:paddingEnd="@dimen/padding_left_detail"
-                android:text="@string/company_logo"
-                android:layout_width="wrap_content"/>
+                android:paddingStart="@dimen/padding_left_detail"
+                android:text="@string/company_logo"/>
 
             <TextView
                 android:id="@+id/text_logo_path_company"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/layout_height_detail"
-                android:gravity="center_vertical"
-                android:layout_width="wrap_content"/>
+                android:gravity="center_vertical"/>
 
         </TableRow>
 
         <!--Parent company-->
-        <TableRow android:layout_width="wrap_content"
-                  android:layout_height="wrap_content">
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
             <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/layout_height_detail"
                 android:gravity="center_vertical"
-                android:paddingStart="@dimen/padding_left_detail"
                 android:paddingEnd="@dimen/padding_left_detail"
-                android:text="@string/company_parent"
-                android:layout_width="wrap_content"/>
+                android:paddingStart="@dimen/padding_left_detail"
+                android:text="@string/company_parent"/>
 
             <TextView
                 android:id="@+id/text_parent_company"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/padding_left_detail"
-                android:gravity="center_vertical"
-                android:layout_width="wrap_content"/>
+                android:gravity="center_vertical"/>
 
         </TableRow>
 

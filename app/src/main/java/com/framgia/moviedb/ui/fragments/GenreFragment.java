@@ -46,8 +46,8 @@ public class GenreFragment extends Fragment implements OnListenerCallback {
         data.put(GenreApi.Api.API_KEY.getValues(), BuildConfig.API_KEY);
         data.put(GenreApi.Api.LANGUAGE.getValues(), ApiClient.LANGUAGE);
         mGenreApi.getGenres(GenreApi.Api.SINGLE_MOVIE.getValues(),
-                            GenreApi.Api.LIST_OF_MOVIES.getValues(),
-                            data)
+            GenreApi.Api.LIST_OF_MOVIES.getValues(),
+            data)
             .enqueue(new RetrofitCallback<GenreResponse>(this) {
                 @Override
                 public void onResponse(Call<GenreResponse> call, Response<GenreResponse> response) {

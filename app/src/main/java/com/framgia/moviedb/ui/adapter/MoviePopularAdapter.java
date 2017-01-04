@@ -46,7 +46,11 @@ public class MoviePopularAdapter extends RecyclerView.Adapter<MoviePopularAdapte
         return mListMovieInfoList == null ? 0 : mListMovieInfoList.size();
     }
 
-    class MovieHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public interface OnFragmentEvent {
+        void onDataSelected(PrimaryMovieInfo movieInfo);
+    }
+
+    class MovieHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private ImageView mImageView;
         private TextView mTextName, mTextReleaseDate, mTextVoteCount, mTextVoteAverage;
         private PrimaryMovieInfo mMovieInfo;
@@ -77,10 +81,7 @@ public class MoviePopularAdapter extends RecyclerView.Adapter<MoviePopularAdapte
 
         @Override
         public void onClick(View v) {
-            if(mListenner != null) mListenner.onDataSelected(mMovieInfo);
+            if (mListenner != null) mListenner.onDataSelected(mMovieInfo);
         }
-    }
-    public interface OnFragmentEvent {
-        void onDataSelected(PrimaryMovieInfo movieInfo);
     }
 }
