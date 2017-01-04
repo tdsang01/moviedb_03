@@ -2,6 +2,7 @@ package com.framgia.moviedb.ui.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -12,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.framgia.moviedb.R;
+import com.framgia.moviedb.ui.fragments.ListMovieFragment;
 import com.framgia.moviedb.ui.fragments.MainFragment;
 
 public class MainActivity extends AppCompatActivity
@@ -67,23 +69,22 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    // This method will return the action when Navigations has events
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        //Fragment fragment = null;
+        Fragment fragment = new MainFragment();// tạm thời để thế này để test đã.
         switch (id) {
             case R.id.nav_home:
-                MainFragment mainFragment = new MainFragment();
-                transaction.replace(R.id.fragment_container, mainFragment);
-                transaction.commit();
+                fragment = new MainFragment();
                 break;
             case R.id.nav_account:
                 // TODO Action feature
                 break;
             case R.id.nav_movies:
-                // TODO Movie feature
+                fragment = new ListMovieFragment();
                 break;
             case R.id.nav_list:
                 // TODO List feature
@@ -100,6 +101,8 @@ public class MainActivity extends AppCompatActivity
             default:
                 break;
         }
+        transaction.replace(R.id.fragment_container, fragment);
+        transaction.commit();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

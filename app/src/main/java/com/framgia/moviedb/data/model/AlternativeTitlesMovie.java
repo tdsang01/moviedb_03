@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 public class AlternativeTitlesMovie {
     @SerializedName("iso_3166_1")
     private String mIso31661;
-
+    
     @SerializedName("title")
     private String mTitle;
 

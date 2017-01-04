@@ -3,6 +3,7 @@ package com.framgia.moviedb.ui.fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import com.framgia.moviedb.BuildConfig;
 import com.framgia.moviedb.R;
+import com.framgia.moviedb.data.model.ManagerConstant;
 import com.framgia.moviedb.data.model.MovieResponse;
 import com.framgia.moviedb.data.model.PrimaryMovieInfo;
 import com.framgia.moviedb.service.ApiClient;
@@ -23,13 +25,11 @@ import com.framgia.moviedb.ui.adapter.HorizontalMoviesAdapter;
 import com.framgia.moviedb.ui.interactor.OnListenerCallback;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
@@ -127,15 +127,25 @@ public class MainFragment extends Fragment implements View.OnClickListener, OnLi
 
     @Override
     public void onClick(View v) {
+        FragmentTransaction transaction = getActivity()
+                .getSupportFragmentManager()
+                .beginTransaction();
+        Fragment fragment = null;
         switch (v.getId()) {
             case R.id.text_more_popular_movies :
-                // TODO Go to a new Fragment that will load more Popular Movies
+                fragment = ListMovieFragment.newInstance(
+                    ManagerConstant.Param.PARAM_TYPE_MOVIE_POPULAR);
                 break;
-            case R.id.top_rated_movies :
-                // TODO Go to a new Fragment that will load moew Top Rated Movies
+            case R.id.text_more_top_rated_movies :
+                fragment = ListMovieFragment.newInstance(
+                    ManagerConstant.Param.PARAM_TYPE_MOVIE_TOP_RATED);
                 break;
             default:
                 break;
+        }
+        if(fragment != null){
+            transaction.replace(R.id.fragment_container, fragment);
+            transaction.commit();
         }
     }
 
