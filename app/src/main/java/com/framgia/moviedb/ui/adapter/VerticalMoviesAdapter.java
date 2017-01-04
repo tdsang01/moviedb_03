@@ -51,9 +51,9 @@ public class VerticalMoviesAdapter
 
         public VerticalViewHolder(View view) {
             super(view);
-            mLogo = (ImageView) view.findViewById(R.id.image_poster_movie);
-            mTitle = (TextView) view.findViewById(R.id.text_title_movie);
-            mReleaseDate = (TextView) view.findViewById(R.id.text_release_date_movie);
+            mLogo = (ImageView) view.findViewById(R.id.image_movie_detail);
+            mTitle = (TextView) view.findViewById(R.id.text_name_of_movie);
+            mReleaseDate = (TextView) view.findViewById(R.id.text_release_date_movie_detail);
             mVoteCount = (TextView) view.findViewById(R.id.text_vote_count_movie);
             mVoteAverage = (TextView) view.findViewById(R.id.text_vote_average_movie);
         }

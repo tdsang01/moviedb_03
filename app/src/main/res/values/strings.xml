@@ -6,7 +6,7 @@
     <string name="username">trungnguyen</string>
     <string name="account">Account</string>
     <string name="movie">Movie</string>
-    <string name="list">List</string>
+    <string name="genres">Genres</string>
     <string name="company">Company</string>
     <string name="collection">Collection</string>
     <string name="about">About</string>
@@ -36,4 +36,6 @@
     <string name="error_load">Khong the lay duoc du lieu!</string>
     <string name="movie_vote_count">Lượt xem:   </string>
     <string name="movie_vote_average">Đánh giá:   </string>
+    <string name="text_vote_count">Lượt xem:\u0020</string>
+    <string name="text_vote_average">Đánh giá:\u0020</string>
 </resources>
