@@ -1,19 +1,24 @@
 package com.framgia.moviedb.ui.activity;
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.framgia.moviedb.R;
 import com.framgia.moviedb.ui.fragments.ListMovieFragment;
+import com.framgia.moviedb.ui.fragments.GenreFragment;
 import com.framgia.moviedb.ui.fragments.MainFragment;
 
 public class MainActivity extends AppCompatActivity
@@ -55,7 +60,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar_menu, menu);
-        return true;
+        return false;
     }
 
     // This method will return the action when toolbar has events
@@ -75,25 +80,22 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         //Fragment fragment = null;
-        Fragment fragment = new MainFragment();// tạm thời để thế này để test đã.
+        Fragment fragment = null;
         switch (id) {
             case R.id.nav_home:
                 fragment = new MainFragment();
                 break;
             case R.id.nav_account:
-                // TODO Action feature
+                // TODO Account feature
                 break;
-            case R.id.nav_movies:
-                fragment = new ListMovieFragment();
-                break;
-            case R.id.nav_list:
-                // TODO List feature
+            case R.id.nav_genres:
+                fragment = new GenreFragment();
                 break;
             case R.id.nav_company:
-                // TODO Company feature
+                // TODO Search companies
                 break;
             case R.id.nav_collection:
-                // TODO Collection feature
+                // TODO Search collections
                 break;
             case R.id.nav_about:
                 // TODO Information of the team who create this app
@@ -101,8 +103,10 @@ public class MainActivity extends AppCompatActivity
             default:
                 break;
         }
-        transaction.replace(R.id.fragment_container, fragment);
-        transaction.commit();
+        if (fragment != null) {
+            transaction.replace(R.id.fragment_container, fragment);
+            transaction.commit();
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

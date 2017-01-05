@@ -11,20 +11,16 @@
             android:icon="@android:drawable/stat_notify_chat"
             android:title="@string/account"/>
         <item
-            android:id="@+id/nav_movies"
-            android:icon="@android:drawable/ic_menu_slideshow"
-            android:title="@string/movie"/>
-        <item
-            android:id="@+id/nav_list"
+            android:id="@+id/nav_genres"
             android:icon="@android:drawable/ic_menu_gallery"
-            android:title="@string/company"/>
+            android:title="@string/genres"/>
         <item
             android:id="@+id/nav_company"
-            android:icon="@android:drawable/ic_dialog_email"
-            android:title="@string/list"/>
+            android:icon="@android:drawable/ic_menu_slideshow"
+            android:title="@string/company"/>
         <item
             android:id="@+id/nav_collection"
-            android:icon="@android:drawable/ic_menu_manage"
+            android:icon="@android:drawable/ic_menu_slideshow"
             android:title="@string/collection"/>
         <item
             android:id="@+id/nav_about"
