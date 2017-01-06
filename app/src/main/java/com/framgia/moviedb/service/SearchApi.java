@@ -1,6 +1,8 @@
 package com.framgia.moviedb.service;
 
 import com.framgia.moviedb.data.model.CollectionResponse;
+import com.framgia.moviedb.data.model.Company;
+import com.framgia.moviedb.data.model.CompanyResponse;
 
 import java.util.Map;
 
@@ -16,10 +18,11 @@ public interface SearchApi {
     @GET("search/{option}")
     Call<CollectionResponse> getCollections(@Path("option") String option,
                                             @QueryMap Map<String, String> types);
+    @GET("search/{option}")
+    Call<CompanyResponse> getCompanies(@Path("option") String option,
+                                       @QueryMap Map<String, String> types);
     enum Api {
         API_KEY("api_key"),
-        COLLECTIONS("collection"),
-        COMPANY("company"),
         QUERY("query"),
         PAGE("page"),
         LANGUAGE("language");
