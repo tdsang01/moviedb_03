@@ -3,16 +3,16 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
-              tools:context="com.framgia.moviedb.ui.fragments.CompanyFragment">
+              tools:context="com.framgia.moviedb.ui.fragments.DetailCompanyFragment">
 
     <TextView
         android:id="@+id/text_name_company"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/company_name_text_size"
-        android:layout_marginTop="@dimen/company_name_margin_top"
         android:layout_marginBottom="@dimen/company_name_margin_bottom"
-        android:gravity="center"/>
+        android:layout_marginTop="@dimen/company_name_margin_top"
+        android:gravity="center"
+        android:textSize="@dimen/company_name_text_size"/>
 
     <include layout="@layout/detail_company"/>
 

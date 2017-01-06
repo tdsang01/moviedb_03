@@ -18,7 +18,6 @@ import com.framgia.moviedb.data.model.PrimaryMovieInfo;
 import com.framgia.moviedb.service.ApiClient;
 import com.framgia.moviedb.service.CompanyApi;
 import com.framgia.moviedb.service.RetrofitCallback;
-import com.framgia.moviedb.ui.adapter.HorizontalMoviesAdapter;
 import com.framgia.moviedb.ui.adapter.VerticalMoviesAdapter;
 import com.framgia.moviedb.ui.interactor.OnListenerCallback;
 
@@ -27,13 +26,12 @@ import java.util.List;
 import java.util.Map;
 
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
  * Created by trungnguyens93gmail.com on 1/2/17.
  */
-public class CompanyFragment extends Fragment implements OnListenerCallback {
+public class DetailCompanyFragment extends Fragment implements OnListenerCallback {
     private TextView mDescription, mHeadquarters, mHomepage, mName, mLogoPath, mParentCompany;
     private RecyclerView mMoviesRecycleView;
     private CompanyApi mCompanyApi;
@@ -53,8 +51,8 @@ public class CompanyFragment extends Fragment implements OnListenerCallback {
         mParentCompany = (TextView) view.findViewById(R.id.text_parent_company);
         // Init and Setting RecycleView
         mMoviesRecycleView = (RecyclerView) view.findViewById(R.id.recycle_movies_of_company);
-        mMoviesRecycleView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager
-            .VERTICAL, false));
+        mMoviesRecycleView
+            .setLayoutManager(new LinearLayoutManager(getContext()));
         // Init CompanyApi
         mCompanyApi = ApiClient.getClient().create(CompanyApi.class);
         // Load data
@@ -74,7 +72,8 @@ public class CompanyFragment extends Fragment implements OnListenerCallback {
                     Company company = response.body();
                     if (company == null) {
                         getFragmentManager().popBackStack();
-                        Toast.makeText(getContext(), R.string.company_error, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), R.string.company_error, Toast.LENGTH_SHORT)
+                            .show();
                         return;
                     }
                     mDescription.setText(company.getDescription());

@@ -128,22 +128,22 @@ public class MainFragment extends Fragment implements View.OnClickListener, OnLi
     @Override
     public void onClick(View v) {
         FragmentTransaction transaction = getActivity()
-                .getSupportFragmentManager()
-                .beginTransaction();
+            .getSupportFragmentManager()
+            .beginTransaction();
         Fragment fragment = null;
         switch (v.getId()) {
-            case R.id.text_more_popular_movies :
+            case R.id.text_more_popular_movies:
                 fragment = ListMovieFragment.newInstance(
                     ManagerConstant.Param.PARAM_TYPE_MOVIE_POPULAR);
                 break;
-            case R.id.text_more_top_rated_movies :
+            case R.id.text_more_top_rated_movies:
                 fragment = ListMovieFragment.newInstance(
                     ManagerConstant.Param.PARAM_TYPE_MOVIE_TOP_RATED);
                 break;
             default:
                 break;
         }
-        if(fragment != null){
+        if (fragment != null) {
             transaction.replace(R.id.fragment_container, fragment);
             transaction.commit();
         }

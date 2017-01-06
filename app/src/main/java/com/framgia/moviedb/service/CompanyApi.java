@@ -1,6 +1,5 @@
 package com.framgia.moviedb.service;
 
-import com.framgia.moviedb.BuildConfig;
 import com.framgia.moviedb.data.model.Company;
 import com.framgia.moviedb.data.model.MovieResponse;
 

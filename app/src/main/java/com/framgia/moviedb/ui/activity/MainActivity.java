@@ -5,16 +5,20 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.framgia.moviedb.R;
+import com.framgia.moviedb.ui.fragments.CollectionsFragment;
 import com.framgia.moviedb.ui.fragments.GenreFragment;
 import com.framgia.moviedb.ui.fragments.MainFragment;
+import com.framgia.moviedb.ui.interactor.OnSearchDataListenner;
 
 public class MainActivity extends AppCompatActivity
     implements NavigationView.OnNavigationItemSelectedListener{
@@ -55,18 +59,24 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar_menu, menu);
-        return false;
-    }
+        ((SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.action_search)))
+            .setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    Fragment currentFragment =
+                        getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+                    if (currentFragment instanceof OnSearchDataListenner) {
+                        ((OnSearchDataListenner) currentFragment).onSearch(query);
+                    }
+                    return true;
+                }
 
-    // This method will return the action when toolbar has events
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_search) {
-            // TODO The function of actionSearch we will edit when we do Search Task
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    return false;
+                }
+            });
+        return super.onCreateOptionsMenu(menu);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -90,7 +100,7 @@ public class MainActivity extends AppCompatActivity
                 // TODO Search companies
                 break;
             case R.id.nav_collection:
-                // TODO Search collections
+                fragment = new CollectionsFragment();
                 break;
             case R.id.nav_about:
                 // TODO Information of the team who create this app

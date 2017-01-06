@@ -33,26 +33,26 @@ public class ListMovieFragment extends Fragment implements MoviePopularAdapter.O
     private int mNumPage = 1;
     private String mTypeOfListMovie = ManagerConstant.Param.PARAM_TYPE_MOVIE_POPULAR;
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_list_movie, container, false);
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.recycle_view_movie_popular);
-        Bundle bundle = getArguments();
-        if(bundle != null){
-            mTypeOfListMovie = bundle.getString(ManagerConstant.ARGUMENT_TYPE_OF_LIST_MOVIE);
-        }
-        loadPopularMovie(mTypeOfListMovie);
-        return view;
-    }
-
-    public static  ListMovieFragment newInstance(String argumentTypeOfListMovie){
+    public static ListMovieFragment newInstance(String argumentTypeOfListMovie) {
         Fragment fragment = new ListMovieFragment();
         Bundle bundle = new Bundle();
         bundle.putString(
             ManagerConstant.ARGUMENT_TYPE_OF_LIST_MOVIE, argumentTypeOfListMovie);
         fragment.setArguments(bundle);
         return (ListMovieFragment) fragment;
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_list_movie, container, false);
+        mRecyclerView = (RecyclerView) view.findViewById(R.id.recycle_view_movie_popular);
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            mTypeOfListMovie = bundle.getString(ManagerConstant.ARGUMENT_TYPE_OF_LIST_MOVIE);
+        }
+        loadPopularMovie(mTypeOfListMovie);
+        return view;
     }
 
     public void loadPopularMovie(String type) {

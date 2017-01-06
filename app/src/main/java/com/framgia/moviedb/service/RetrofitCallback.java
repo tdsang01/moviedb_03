@@ -1,6 +1,7 @@
 package com.framgia.moviedb.service;
 
 import com.framgia.moviedb.ui.interactor.OnListenerCallback;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
