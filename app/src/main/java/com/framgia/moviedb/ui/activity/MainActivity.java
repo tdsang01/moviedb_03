@@ -16,13 +16,14 @@ import android.view.MenuItem;
 
 import com.framgia.moviedb.R;
 import com.framgia.moviedb.ui.fragments.AccountDetailFragment;
-import com.framgia.moviedb.ui.fragments.CollectionsFragment;
+import com.framgia.moviedb.data.model.ManagerConstant;
 import com.framgia.moviedb.ui.fragments.GenreFragment;
 import com.framgia.moviedb.ui.fragments.MainFragment;
+import com.framgia.moviedb.ui.fragments.SearchFragment;
 import com.framgia.moviedb.ui.interactor.OnSearchDataListenner;
 
 public class MainActivity extends AppCompatActivity
-    implements NavigationView.OnNavigationItemSelectedListener{
+    implements NavigationView.OnNavigationItemSelectedListener {
     private NavigationView mNavigationView;
     private Toolbar mToolbar;
 
@@ -98,10 +99,10 @@ public class MainActivity extends AppCompatActivity
                 fragment = new GenreFragment();
                 break;
             case R.id.nav_company:
-                // TODO Search companies
+                fragment = SearchFragment.newInstance(ManagerConstant.Param.PARAM_TYPE_COMPANY);
                 break;
             case R.id.nav_collection:
-                fragment = new CollectionsFragment();
+                fragment = SearchFragment.newInstance(ManagerConstant.Param.PARAM_TYPE_COLLECTION);
                 break;
             case R.id.nav_about:
                 // TODO Information of the team who create this app
