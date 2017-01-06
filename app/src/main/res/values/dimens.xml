@@ -41,4 +41,5 @@
     <dimen name="account_padding_top">15dp</dimen>
     <dimen name="account_padding_left">10dp</dimen>
     <dimen name="account_image_size">50dp</dimen>
+    <dimen name="account_text_your_profile_size">18sp</dimen>
 </resources>

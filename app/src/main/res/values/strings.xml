@@ -47,5 +47,6 @@
     <string name="account_detail_id">ID:\u0020</string>
     <string name="account_detail_name">Name:\u0020</string>
     <string name="account_detail_country">Country:\u0020</string>
-    <string name="account_detail_Username">Username:\u0020</string>
+    <string name="account_detail_username">Username:\u0020</string>
+    <string name="account_text_your_profile">Your profile</string>
 </resources>
