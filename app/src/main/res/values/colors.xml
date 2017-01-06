@@ -10,4 +10,5 @@
     <color name="color_shadow">#efeff5</color>
     <color name="color_deep_sky_blue">#80e2e8</color>
     <color name="color_background_list_movie">#80e2e8</color>
+    <color name="color_background_movie_detail">#7a81fb</color>
 </resources>

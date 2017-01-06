@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.framgia.moviedb.R;
 import com.framgia.moviedb.data.model.ManagerConstant;
@@ -20,11 +19,14 @@ public class MoviePopularAdapter extends RecyclerView.Adapter<MoviePopularAdapte
     private Context mContext;
     private List<PrimaryMovieInfo> mListMovieInfoList;
     private LayoutInflater mInflater;
+    private OnFragmentEvent mListenner;
 
-    public MoviePopularAdapter(Context context, List<PrimaryMovieInfo> listMovieInfoList) {
+    public MoviePopularAdapter(Context context, List<PrimaryMovieInfo> listMovieInfoList,
+                               OnFragmentEvent listenner) {
         mContext = context;
         mListMovieInfoList = listMovieInfoList;
         mInflater = LayoutInflater.from(context);
+        mListenner = listenner;
     }
 
     @Override
@@ -48,7 +50,6 @@ public class MoviePopularAdapter extends RecyclerView.Adapter<MoviePopularAdapte
         private ImageView mImageView;
         private TextView mTextName, mTextReleaseDate, mTextVoteCount, mTextVoteAverage;
         private PrimaryMovieInfo mMovieInfo;
-
 
         public MovieHolder(View itemView) {
             super(itemView);
@@ -76,9 +77,10 @@ public class MoviePopularAdapter extends RecyclerView.Adapter<MoviePopularAdapte
 
         @Override
         public void onClick(View v) {
-            //TODO: load movie detail
-            // test
-            Toast.makeText(v.getContext(), String.valueOf(mMovieInfo.getId()), Toast.LENGTH_SHORT).show();
+            if(mListenner != null) mListenner.onDataSelected(mMovieInfo);
         }
+    }
+    public interface OnFragmentEvent {
+        void onDataSelected(PrimaryMovieInfo movieInfo);
     }
 }

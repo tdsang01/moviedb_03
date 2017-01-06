@@ -38,4 +38,10 @@
     <string name="movie_vote_average">Đánh giá:   </string>
     <string name="text_vote_count">Lượt xem:\u0020</string>
     <string name="text_vote_average">Đánh giá:\u0020</string>
+    <string name="text_vote_count_detail">Vote count:\u0020</string>
+    <string name="text_vote_average_detail">Vote average:\u0020</string>
+    <string name="text_release_date_detail">Release date:\u0020</string>
+    <string name="text_runtime_detail">Runtime:\u0020</string>
+    <string name="text_populary_detail">Populary:\u0020</string>
+    <string name="text_overview_detail">Overview:\u0020</string>
 </resources>
