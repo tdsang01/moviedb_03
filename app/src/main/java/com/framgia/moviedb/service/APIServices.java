@@ -1,5 +1,6 @@
 package com.framgia.moviedb.service;
 
+import com.framgia.moviedb.data.model.AccountDetail;
 import com.framgia.moviedb.data.model.ListPrimaryMovieInfo;
 import com.framgia.moviedb.data.model.ManagerConstant;
 import com.framgia.moviedb.data.model.PrimaryMovieInfo;
@@ -21,6 +22,11 @@ public interface APIServices {
     @GET(ManagerConstant.UrlManager.PATH_MOVIE_DETAILS)
     Call<PrimaryMovieInfo> getMovieDetails(
         @Path(ManagerConstant.UrlManager.PATH_MOVIE_ID) String movieId,
+        @QueryMap Map<String, String> params
+    );
+
+    @GET(ManagerConstant.UrlManager.PATH_ACCOUNT_DETAIL)
+    Call<AccountDetail> getAccountDetail(
         @QueryMap Map<String, String> params
     );
 }

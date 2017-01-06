@@ -2,24 +2,29 @@ package com.framgia.moviedb.data.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Avatar {
+public class AccountDetail {
     @SerializedName("id")
     private int mId;
-
     @SerializedName("name")
     private String mName;
-
     @SerializedName("iso_639_1")
     private String mIso6391;
-
     @SerializedName("iso_3166_1")
     private String mIso31661;
-
     @SerializedName("include_adult")
     private boolean mIncludeAdult;
-
     @SerializedName("username")
     private String mUserName;
+    @SerializedName("avatar")
+    private Gravatar mAvatarPath;
+
+    public Gravatar getAvatarPath() {
+        return mAvatarPath;
+    }
+
+    public void setAvatarPath(Gravatar avatarPath) {
+        this.mAvatarPath = avatarPath;
+    }
 
     public int getId() {
         return mId;
@@ -67,5 +72,31 @@ public class Avatar {
 
     public void setUserName(String userName) {
         mUserName = userName;
+    }
+
+    public class Gravatar {
+        @SerializedName("gravatar")
+        private Hash mGravatar;
+
+        public Hash getGravatar() {
+            return mGravatar;
+        }
+
+        public void setGravatar(Hash gravatar) {
+            this.mGravatar = gravatar;
+        }
+
+        public class Hash {
+            @SerializedName("hash")
+            private String mHash;
+
+            public String getHash() {
+                return mHash;
+            }
+
+            public void setHash(String hash) {
+                this.mHash = hash;
+            }
+        }
     }
 }

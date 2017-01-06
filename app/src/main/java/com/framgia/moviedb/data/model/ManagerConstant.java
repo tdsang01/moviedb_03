@@ -8,12 +8,14 @@ public class ManagerConstant {
     public static final String ARGUMENT_MOVIE_ID_DEFAULT = "0";
 
     public class UrlManager {
-        public static final String IMAGE_URL = "https://image.tmdb.org/t/p/w500";
         public static final String ROOT_URL = "https://api.themoviedb.org/3/";
+        public static final String IMAGE_URL = "https://image.tmdb.org/t/p/w500";
+        public static final String IMAGE_AVATAR_URL = "http://1.gravatar.com/avatar/";
         public static final String PATH_LIST_MOVIE = "movie/{load_movie_type}";
         public static final String PATH_TYPE_MOVIE = "load_movie_type";
         public static final String PATH_MOVIE_DETAILS = "movie/{movie_id}";
         public static final String PATH_MOVIE_ID = "movie_id";
+        public static final String PATH_ACCOUNT_DETAIL = "account";
     }
 
     public class MessengerManager {
@@ -29,5 +31,6 @@ public class ManagerConstant {
         public static final String PARAM_TYPE_MOVIE_TOP_RATED = "top_rated";
         public static final String PARAM_TYPE_COMPANY = "company";
         public static final String PARAM_TYPE_COLLECTION = "collection";
+        public static final String PARAM_SESSION_ID = "session_id";
     }
 }

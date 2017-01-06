@@ -9,7 +9,9 @@
         android:id="@+id/image_account_avatar"
         android:layout_width="@dimen/account_avatar_size"
         android:layout_height="@dimen/account_avatar_size"
+        android:layout_gravity="center"
         app:srcCompat="@drawable/avatar_default"/>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,32 +21,40 @@
         android:paddingTop="@dimen/account_padding_top">
 
         <TextView
-            android:id="@+id/text_acount_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/account_detail_id"/>
+            android:layout_marginTop="@dimen/text_magin_top"
+            android:text="@string/account_text_your_profile"
+            android:textSize="@dimen/account_text_your_profile_size"/>
+
+        <TextView
+            android:id="@+id/text_account_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_magin_top"/>
 
         <TextView
             android:id="@+id/text_account_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/account_detail_name"/>
+            android:layout_marginTop="@dimen/text_magin_top"/>
 
         <TextView
             android:id="@+id/text_account_country"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/account_detail_country"/>
+            android:layout_marginTop="@dimen/text_magin_top"/>
 
         <TextView
             android:id="@+id/text_account_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/account_detail_Username"/>
+            android:layout_marginTop="@dimen/text_magin_top"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_magin_top"
             android:orientation="horizontal">
 
             <ImageButton
@@ -66,6 +76,4 @@
                 app:srcCompat="@drawable/ic_rated"/>
         </LinearLayout>
     </LinearLayout>
-
-
 </LinearLayout>
