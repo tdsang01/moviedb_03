@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.framgia.moviedb.R;
+import com.framgia.moviedb.ui.fragments.AccountDetailFragment;
 import com.framgia.moviedb.ui.fragments.CollectionsFragment;
 import com.framgia.moviedb.ui.fragments.GenreFragment;
 import com.framgia.moviedb.ui.fragments.MainFragment;
@@ -91,7 +92,7 @@ public class MainActivity extends AppCompatActivity
                 fragment = new MainFragment();
                 break;
             case R.id.nav_account:
-                // TODO Account feature
+                fragment = new AccountDetailFragment();
                 break;
             case R.id.nav_genres:
                 fragment = new GenreFragment();
