@@ -37,4 +37,8 @@
     <dimen name="image_poster_width">250dp</dimen>
     <dimen name="image_poster_height">350dp</dimen>
     <dimen name="text_size_movie_detail_name">20sp</dimen>
+    <dimen name="account_avatar_size">300dp</dimen>
+    <dimen name="account_padding_top">15dp</dimen>
+    <dimen name="account_padding_left">10dp</dimen>
+    <dimen name="account_image_size">50dp</dimen>
 </resources>
