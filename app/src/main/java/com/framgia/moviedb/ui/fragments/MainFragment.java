@@ -23,6 +23,7 @@ import com.framgia.moviedb.service.MovieApi;
 import com.framgia.moviedb.service.RetrofitCallback;
 import com.framgia.moviedb.ui.adapter.HorizontalMoviesAdapter;
 import com.framgia.moviedb.ui.interactor.OnListenerCallback;
+import com.framgia.moviedb.ultils.Utils;
 import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
@@ -35,14 +36,14 @@ import retrofit2.Response;
 /**
  * Created by trungnguyens93gmail.com on 12/27/16.
  */
-public class MainFragment extends Fragment implements View.OnClickListener, OnListenerCallback {
+public class MainFragment extends Fragment implements View.OnClickListener, OnListenerCallback,
+    HorizontalMoviesAdapter.OnFragmentEvent {
     private ImageView mImageLastedMovie;
     private TextView mMorePopularMovies;
     private TextView mMoreTopRatedMovies;
     private RecyclerView mPopularRecycleView;
     private RecyclerView mTopRatedRecycleView;
     private MovieApi mMovieApi;
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
@@ -82,13 +83,27 @@ public class MainFragment extends Fragment implements View.OnClickListener, OnLi
                 public void onResponse(Call<PrimaryMovieInfo> call,
                                        Response<PrimaryMovieInfo> response) {
                     super.onResponse(call, response);
-                    PrimaryMovieInfo primaryMovieInfo = response.body();
-                    Picasso.with(getContext()).load(ApiClient.BASE_IMAGE_URL +
-                        primaryMovieInfo.getPosterPath())
-                        .placeholder(R.mipmap.ic_launcher)
-                        .into(mImageLastedMovie);
+                    loadDataLastedMovie(response.body(), mImageLastedMovie);
                 }
             });
+    }
+
+    private void loadDataLastedMovie(final PrimaryMovieInfo movie, final ImageView imageLastedMovie) {
+        if(movie != null){
+            Picasso.with(getContext()).load(ApiClient.BASE_IMAGE_URL +
+                movie.getPosterPath())
+                .placeholder(R.mipmap.ic_launcher)
+                .into(imageLastedMovie);
+            imageLastedMovie.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onDataSelected(movie);
+                }
+            });
+        }else {
+            Utils.makeToast(getActivity(), ManagerConstant.MessengerManager.MSG_LOAD);
+        }
+
     }
 
     public void getPopularMovies() {
@@ -101,9 +116,7 @@ public class MainFragment extends Fragment implements View.OnClickListener, OnLi
                 @Override
                 public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
                     super.onResponse(call, response);
-                    List<PrimaryMovieInfo> primaryMovieInfos = response.body().getResult();
-                    mPopularRecycleView.setAdapter(new HorizontalMoviesAdapter(getContext(),
-                        primaryMovieInfos));
+                    loadDataRecycleView(response.body().getResult(), mPopularRecycleView);
                 }
             });
     }
@@ -118,11 +131,15 @@ public class MainFragment extends Fragment implements View.OnClickListener, OnLi
                 @Override
                 public void onResponse(Call<MovieResponse> call, Response<MovieResponse> response) {
                     super.onResponse(call, response);
-                    List<PrimaryMovieInfo> primaryMovieInfos = response.body().getResult();
-                    mTopRatedRecycleView.setAdapter(new HorizontalMoviesAdapter(getContext(),
-                        primaryMovieInfos));
+                    loadDataRecycleView(response.body().getResult(), mTopRatedRecycleView);
                 }
             });
+    }
+
+    private void loadDataRecycleView(List<PrimaryMovieInfo> listMovie, RecyclerView recyclerView) {
+        HorizontalMoviesAdapter adapter = new HorizontalMoviesAdapter(getContext(),
+            listMovie, this);
+        recyclerView.setAdapter(adapter);
     }
 
     @Override
@@ -157,5 +174,14 @@ public class MainFragment extends Fragment implements View.OnClickListener, OnLi
     @Override
     public void onEmptyData() {
         Toast.makeText(getContext(), R.string.error_load, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onDataSelected(PrimaryMovieInfo movieInfo) {
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager()
+            .beginTransaction();
+        Fragment fragment = DetailsMovieFeaturesFragment.newInstance(movieInfo);
+        transaction.replace(R.id.fragment_container, fragment);
+        transaction.commit();
     }
 }

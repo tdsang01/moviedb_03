@@ -20,11 +20,14 @@ public class HorizontalMoviesAdapter
     private Context mContext;
     private List<PrimaryMovieInfo> mMovies;
     private LayoutInflater mLayoutInflater;
+    private OnFragmentEvent mListenner;
 
-    public HorizontalMoviesAdapter(Context context, List<PrimaryMovieInfo> movies) {
+    public HorizontalMoviesAdapter(Context context, List<PrimaryMovieInfo> movies,
+                                   OnFragmentEvent listenner) {
         mContext = context;
         mLayoutInflater = LayoutInflater.from(context);
         mMovies = movies;
+        mListenner = listenner;
     }
 
     @Override
@@ -44,8 +47,12 @@ public class HorizontalMoviesAdapter
         return mMovies == null ? 0 : mMovies.size();
     }
 
+    public interface OnFragmentEvent {
+        void onDataSelected(PrimaryMovieInfo movieInfo);
+    }
+
     // Setting item of RecycleView
-    public class HorizontalViewHolder extends RecyclerView.ViewHolder {
+    public class HorizontalViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private TextView mNameMovie;
         private ImageView mImageView;
 
@@ -53,6 +60,7 @@ public class HorizontalMoviesAdapter
             super(itemView);
             mNameMovie = (TextView) itemView.findViewById(R.id.text_name_of_movie);
             mImageView = (ImageView) itemView.findViewById(R.id.image_title);
+            itemView.setOnClickListener(this);
         }
 
         public void bindData(PrimaryMovieInfo primaryMovieInfo) {
@@ -62,6 +70,11 @@ public class HorizontalMoviesAdapter
                 .load(ApiClient.BASE_IMAGE_URL + primaryMovieInfo.getBackdropPath())
                 .placeholder(R.mipmap.ic_launcher)
                 .into(mImageView);
+        }
+
+        @Override
+        public void onClick(View v) {
+            if (mListenner != null) mListenner.onDataSelected(mMovies.get(getAdapterPosition()));
         }
     }
 }

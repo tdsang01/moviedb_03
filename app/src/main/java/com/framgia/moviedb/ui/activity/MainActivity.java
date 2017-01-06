@@ -15,8 +15,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.framgia.moviedb.R;
-import com.framgia.moviedb.ui.fragments.AccountDetailFragment;
 import com.framgia.moviedb.data.model.ManagerConstant;
+import com.framgia.moviedb.ui.fragments.AccountDetailFragment;
 import com.framgia.moviedb.ui.fragments.GenreFragment;
 import com.framgia.moviedb.ui.fragments.MainFragment;
 import com.framgia.moviedb.ui.fragments.SearchFragment;
@@ -86,8 +86,7 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        //Fragment fragment = null;
-        Fragment fragment = new MainFragment();// tạm thời để thế này để test đã.
+        Fragment fragment = null;
         switch (id) {
             case R.id.nav_home:
                 fragment = new MainFragment();

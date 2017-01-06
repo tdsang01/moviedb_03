@@ -6,6 +6,8 @@ public class ManagerConstant {
     public static final String ARGUMENT_TYPE_OF_SEARCH = "ARGUMENT_TYPE_OF_SEARCH";
     public static final String ARGUMENT_MOVIE_ID = "ARGUMENT_MOVIE_ID";
     public static final String ARGUMENT_MOVIE_ID_DEFAULT = "0";
+    public static final String ARGUMENT_TYPE_OF_MOVIES_ACCOUNT = "ARGUMENT_TYPE_OF_MOVIES_ACCOUNT";
+    public static final String ARGUMENT_ACCOUNT_ID = "6465352";
 
     public class UrlManager {
         public static final String ROOT_URL = "https://api.themoviedb.org/3/";
@@ -16,6 +18,13 @@ public class ManagerConstant {
         public static final String PATH_MOVIE_DETAILS = "movie/{movie_id}";
         public static final String PATH_MOVIE_ID = "movie_id";
         public static final String PATH_ACCOUNT_DETAIL = "account";
+        public static final String PATH_ACCOUNT_MOVIES_FAVORITE = "favorite";
+        public static final String PATH_ACCOUNT_MOVIES_WATCHLIST = "watchlist";
+        public static final String PATH_ACCOUNT_MOVIES_RATED = "rated";
+        public static final String PATH_ACCOUNT_MOVIES =
+            "account/{account_id}/{type_of_account_movie}/movies";
+        public static final String PATH_TYPE_OF_ACCOUNT_MOVIE = "type_of_account_movie";
+        public static final String PATH__ACCOUNT_UD = "account_id";
     }
 
     public class MessengerManager {

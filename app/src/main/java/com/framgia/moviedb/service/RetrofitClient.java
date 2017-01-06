@@ -31,7 +31,13 @@ public abstract class RetrofitClient {
     }
 
     public static void getAccountDetail(Map<String, String> params,
-                                       Callback<AccountDetail> callback) {
+                                        Callback<AccountDetail> callback) {
         clientForecast.getAccountDetail(params).enqueue(callback);
+    }
+
+    public static void getAccountMovies(String accountId, String typeOfAccountMovie,
+                                        Map<String, String> params,
+                                        Callback<ListPrimaryMovieInfo> callback) {
+        clientForecast.getAccountMovies(accountId, typeOfAccountMovie, params).enqueue(callback);
     }
 }

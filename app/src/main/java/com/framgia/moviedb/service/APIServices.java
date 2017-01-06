@@ -18,15 +18,19 @@ public interface APIServices {
         @Path(ManagerConstant.UrlManager.PATH_TYPE_MOVIE) String type,
         @QueryMap Map<String, String> params
     );
-
     @GET(ManagerConstant.UrlManager.PATH_MOVIE_DETAILS)
     Call<PrimaryMovieInfo> getMovieDetails(
         @Path(ManagerConstant.UrlManager.PATH_MOVIE_ID) String movieId,
         @QueryMap Map<String, String> params
     );
-
     @GET(ManagerConstant.UrlManager.PATH_ACCOUNT_DETAIL)
     Call<AccountDetail> getAccountDetail(
+        @QueryMap Map<String, String> params
+    );
+    @GET(ManagerConstant.UrlManager.PATH_ACCOUNT_MOVIES)
+    Call<ListPrimaryMovieInfo> getAccountMovies(
+        @Path(ManagerConstant.UrlManager.PATH__ACCOUNT_UD) String accountId,
+        @Path(ManagerConstant.UrlManager.PATH_TYPE_OF_ACCOUNT_MOVIE) String typeOfAccountMovie,
         @QueryMap Map<String, String> params
     );
 }

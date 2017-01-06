@@ -2,6 +2,7 @@ package com.framgia.moviedb.ui.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +25,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class AccountDetailFragment extends Fragment {
+public class AccountDetailFragment extends Fragment implements View.OnClickListener {
     private ImageView mImageAvatar;
     private TextView mTextAccountId, mTextAccountName, mTextAccountCountry, mTextAccountUsername;
     private ImageButton mImageButtonFavorite, mImageButtonWatchlist, mImageButtonRated;
@@ -47,6 +48,9 @@ public class AccountDetailFragment extends Fragment {
         mImageButtonFavorite = (ImageButton) v.findViewById(R.id.image_button_account_favorite);
         mImageButtonWatchlist = (ImageButton) v.findViewById(R.id.image_button_account_watchlist);
         mImageButtonRated = (ImageButton) v.findViewById(R.id.image_button_account_rated);
+        mImageButtonFavorite.setOnClickListener(this);
+        mImageButtonWatchlist.setOnClickListener(this);
+        mImageButtonRated.setOnClickListener(this);
     }
 
     private void loadAccountDetail() {
@@ -97,5 +101,33 @@ public class AccountDetailFragment extends Fragment {
 
     public String buildDataText(int stringId, String textDataShow) {
         return new StringBuffer().append(getString(stringId)).append(textDataShow).toString();
+    }
+
+    @Override
+    public void onClick(View v) {
+        FragmentTransaction transaction = getActivity()
+            .getSupportFragmentManager()
+            .beginTransaction();
+        Fragment fragment = null;
+        switch (v.getId()) {
+            case R.id.image_button_account_favorite:
+                fragment = AccountMoviesFragment
+                    .newInstance(ManagerConstant.UrlManager.PATH_ACCOUNT_MOVIES_FAVORITE);
+                break;
+            case R.id.image_button_account_watchlist:
+                fragment = AccountMoviesFragment
+                    .newInstance(ManagerConstant.UrlManager.PATH_ACCOUNT_MOVIES_WATCHLIST);
+                break;
+            case R.id.image_button_account_rated:
+                fragment = AccountMoviesFragment.newInstance(ManagerConstant.UrlManager
+                    .PATH_ACCOUNT_MOVIES_RATED);
+                break;
+            default:
+                break;
+        }
+        if (fragment != null) {
+            transaction.replace(R.id.fragment_container, fragment);
+            transaction.commit();
+        }
     }
 }
